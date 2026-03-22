@@ -188,43 +188,77 @@ function initSchedulePage() {
 
 // profile.html
 function initProfilePage() {
-    // Завдання 3: Динамічна шкала прогресу + журнал тренувань (тут — пройдених курсів)
     const progressFill = document.getElementById('progress-fill-dynamic');
+    const startCourseBtn = document.getElementById('start-course-btn');
+    const doneCourseBtn = document.getElementById('done-course-btn');
+    const courseBlock = document.getElementById('current-course-block');
+    const courseDetails = document.getElementById('course-details');
+
+    let currentPercent = 70;
+    let fillInterval = null;
+
+    // Анімація шкали при завантаженні до 70%
     if (progressFill) {
-        // анімація шкали при завантаженні
-        setTimeout(() => {
-            progressFill.style.width = '70%';
-        }, 300);
+        setTimeout(() => { progressFill.style.width = '70%'; }, 300);
     }
 
-    // Завдання 2: Кнопка "Розпочати курс" на сторінці профілю
-    const startCourseBtn = document.getElementById('start-course-btn');
-    const courseBlock = document.getElementById('current-course-block');
-
+    // Кнопка "Розпочати курс"
     if (startCourseBtn && courseBlock) {
         startCourseBtn.addEventListener('click', function () {
-            // переміщуємо блок вище (анімовано)
-            courseBlock.style.transform = 'translateY(-10px)';
+
+            // Розгортаємо/згортаємо блок з описом курсу
+            if (courseDetails.style.display === 'none') {
+                courseDetails.style.display = 'block';
+                startCourseBtn.textContent = '▼ Згорнути опис';
+            } else {
+                courseDetails.style.display = 'none';
+                startCourseBtn.textContent = '▶ Розпочати курс';
+                return; // якщо згортаємо — таймер і шкалу не чіпаємо
+            }
+
             courseBlock.style.boxShadow = '0 8px 24px rgba(44,62,80,0.15)';
             courseBlock.style.transition = 'all 0.4s ease';
             courseBlock.style.borderLeft = '4px solid #2c3e50';
 
-            startCourseBtn.textContent = '▶ Тривалість курсу...';
-            startCourseBtn.disabled = true;
-            startCourseBtn.style.opacity = '0.7';
-
-            // таймер навчання
+            // Запускаємо таймер
             startTimer('course-timer');
+
+            // Шкала заповнюється по 1% кожну секунду
+            if (fillInterval) clearInterval(fillInterval);
+            fillInterval = setInterval(() => {
+                if (currentPercent >= 100) {
+                    clearInterval(fillInterval);
+                    return;
+                }
+                currentPercent++;
+                if (progressFill) {
+                    progressFill.style.width = currentPercent + '%';
+                    progressFill.style.transition = 'width 0.9s ease';
+                }
+                const progressText = document.getElementById('progress-text');
+                if (progressText) progressText.textContent = `JavaScript — ${currentPercent}%`;
+            }, 1000);
         });
     }
 
-    // кнопка "Курс пройдено" — змінює фон блоку та виводить "Пройдено"
-    const doneCourseBtn = document.getElementById('done-course-btn');
+    // Кнопка "Курс пройдено"
     if (doneCourseBtn && courseBlock) {
         doneCourseBtn.addEventListener('click', function () {
+            // Зупиняємо шкалу і встановлюємо 100%
+            if (fillInterval) clearInterval(fillInterval);
+            currentPercent = 100;
+
             courseBlock.style.backgroundColor = '#eafbea';
             courseBlock.style.borderLeft = '4px solid #27ae60';
             courseBlock.style.transition = 'background-color 0.5s ease';
+
+            if (progressFill) {
+                progressFill.style.width = '100%';
+                progressFill.style.backgroundColor = '#27ae60';
+            }
+
+            const progressText = document.getElementById('progress-text');
+            if (progressText) progressText.textContent = 'JavaScript — 100%';
 
             const doneText = document.getElementById('course-done-text');
             if (doneText) {
@@ -234,27 +268,69 @@ function initProfilePage() {
                 doneText.style.display = 'block';
             }
 
-            // оновлення шкали прогресу до 100%
-            if (progressFill) {
-                progressFill.style.width = '100%';
-                progressFill.style.backgroundColor = '#27ae60';
-            }
-
-            const progressText = document.getElementById('progress-text');
-            if (progressText) progressText.textContent = 'JavaScript — 100%';
-
+            stopTimer('course-timer');
             doneCourseBtn.disabled = true;
             doneCourseBtn.style.opacity = '0.6';
             if (startCourseBtn) {
                 startCourseBtn.disabled = true;
                 startCourseBtn.style.opacity = '0.6';
             }
-
-            stopTimer('course-timer');
         });
     }
+    
+const progressFill2 = document.getElementById('progress-fill-dynamic-2');
+const startCourseBtn2 = document.getElementById('start-course-btn-2');
+const doneCourseBtn2 = document.getElementById('done-course-btn-2');
+const courseBlock2 = document.getElementById('current-course-block-2');
+const courseDetails2 = document.getElementById('course-details-2');
+let currentPercent2 = 30;
+let fillInterval2 = null;
 
-    // Завдання 3: Журнал пройдених курсів — список з яким можна взаємодіяти
+if (progressFill2) setTimeout(() => { progressFill2.style.width = '30%'; }, 300);
+
+if (startCourseBtn2) {
+    startCourseBtn2.addEventListener('click', function () {
+        if (courseDetails2.style.display === 'none') {
+            courseDetails2.style.display = 'block';
+            startCourseBtn2.textContent = '▼ Згорнути опис';
+        } else {
+            courseDetails2.style.display = 'none';
+            startCourseBtn2.textContent = '▶ Розпочати курс';
+            return;
+        }
+        courseBlock2.style.boxShadow = '0 8px 24px rgba(44,62,80,0.15)';
+        courseBlock2.style.borderLeft = '4px solid #2c3e50';
+        startTimer('course-timer-2');
+        if (fillInterval2) clearInterval(fillInterval2);
+        fillInterval2 = setInterval(() => {
+            if (currentPercent2 >= 100) { clearInterval(fillInterval2); return; }
+            currentPercent2++;
+            progressFill2.style.width = currentPercent2 + '%';
+            document.getElementById('progress-text-2').textContent = `Python — ${currentPercent2}%`;
+        }, 1000);
+    });
+}
+
+if (doneCourseBtn2) {
+    doneCourseBtn2.addEventListener('click', function () {
+        if (fillInterval2) clearInterval(fillInterval2);
+        courseBlock2.style.backgroundColor = '#eafbea';
+        courseBlock2.style.borderLeft = '4px solid #27ae60';
+        progressFill2.style.width = '100%';
+        progressFill2.style.backgroundColor = '#27ae60';
+        document.getElementById('progress-text-2').textContent = 'Python — 100%';
+        const doneText2 = document.getElementById('course-done-text-2');
+        doneText2.textContent = '✔ Пройдено';
+        doneText2.style.color = '#27ae60';
+        doneText2.style.fontWeight = 'bold';
+        doneText2.style.display = 'block';
+        stopTimer('course-timer-2');
+        doneCourseBtn2.disabled = true;
+        doneCourseBtn2.style.opacity = '0.6';
+        startCourseBtn2.disabled = true;
+        startCourseBtn2.style.opacity = '0.6';
+    });
+}
     renderTrainingLog();
 }
 

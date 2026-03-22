@@ -29,30 +29,41 @@
             <p>Email: info@courses.ua</p>
         </div>
 
-        <!--
-            ЗАВДАННЯ 2: Блок поточного курсу з двома кнопками.
-            "Розпочати курс" — переміщує блок вище (translateY) + запускає таймер.
-            "Курс пройдено" — змінює колір фону блоку + відображає текст "Пройдено".
-        -->
         <div id="current-course-block" class="progress" style="padding: 15px; border: 1px solid #ccc; border-radius: 4px;">
             <h3>Поточний курс: JavaScript</h3>
             <p id="progress-text">JavaScript — 70%</p>
             <div class="progress-bar">
-                <div
-                    class="progress-fill"
-                    id="progress-fill-dynamic"
-                    style="width: 0%; transition: width 0.8s ease;"
-                ></div>
+                <div class="progress-fill" id="progress-fill-dynamic" style="width: 0%; transition: width 0.8s ease;"></div>
             </div>
-
+            <div id="course-details" style="display:none; margin-top:15px; padding:10px; background:#f0f4f8; border-left:3px solid #2c3e50;">
+                <p><strong>Опис:</strong> Вивчення основ JavaScript: змінні, функції, DOM, події, асинхронність.</p>
+                <p><strong>Прогрес:</strong> Пройдено 5 з 8 тем</p>
+                <p><strong>Наступна тема:</strong> Promises та async/await</p>
+            </div>
             <p id="course-done-text" style="display:none; margin-top:10px;"></p>
-
-            <!-- Таймер навчання (прихований до натискання "Розпочати курс") -->
             <p id="course-timer" style="display:none; margin-top:10px; font-weight:bold; color:#2c3e50;"></p>
-
             <div style="margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
                 <button id="start-course-btn" class="btn">▶ Розпочати курс</button>
                 <button id="done-course-btn" class="btn" style="background:#27ae60;">✔ Курс пройдено</button>
+            </div>
+        </div>
+
+        <div id="current-course-block-2" class="progress" style="padding: 15px; border: 1px solid #ccc; border-radius: 4px; margin-top: 20px;">
+            <h3>Поточний курс: Python</h3>
+            <p id="progress-text-2">Python — 30%</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill-dynamic-2" style="width: 0%; transition: width 0.8s ease;"></div>
+            </div>
+            <div id="course-details-2" style="display:none; margin-top:15px; padding:10px; background:#f0f4f8; border-left:3px solid #2c3e50;">
+                <p><strong>Опис:</strong> Основи Python: синтаксис, структури даних, функції, ООП.</p>
+                <p><strong>Прогрес:</strong> Пройдено 3 з 10 тем</p>
+                <p><strong>Наступна тема:</strong> Списки та словники</p>
+            </div>
+            <p id="course-done-text-2" style="display:none; margin-top:10px;"></p>
+            <p id="course-timer-2" style="display:none; margin-top:10px; font-weight:bold; color:#2c3e50;"></p>
+            <div style="margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
+                <button id="start-course-btn-2" class="btn">▶ Розпочати курс</button>
+                <button id="done-course-btn-2" class="btn" style="background:#27ae60;">✔ Курс пройдено</button>
             </div>
         </div>
 
@@ -63,16 +74,9 @@
             </ul>
         </div>
 
-        <!--
-            ЗАВДАННЯ 3: Журнал тренувань (пройдених курсів).
-            Генерується через цикл for у renderTrainingLog().
-            Показує: назву, тип, дату, тривалість.
-        -->
         <div style="margin-top: 25px;">
             <h3>📋 Журнал навчання</h3>
-            <ul id="training-log-list" style="list-style:none; padding:0;">
-                <!-- Генерується через цикл for у renderTrainingLog() -->
-            </ul>
+            <ul id="training-log-list" style="list-style:none; padding:0;"></ul>
         </div>
 
         <div class="certificates" style="margin-top: 25px;">
