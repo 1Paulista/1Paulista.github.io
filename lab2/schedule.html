@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Розклад занять</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="schedule">
+
+<header class="header">
+    <h1>Навчальна платформа</h1>
+    <nav>
+        <ul class="nav-list">
+            <li><a href="index.html">Головна</a></li>
+            <li><a href="courses.html">Курси</a></li>
+            <li><a href="schedule.html">Розклад занять</a></li>
+            <li><a href="profile.html">Мій кабінет</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h2>Розклад занять</h2>
+
+        <!--
+            ЗАВДАННЯ 1: do...while для автоматичного відображення розкладу.
+            Цикл у script.js читає масив scheduleData і рендерить рядки таблиці.
+            if-else: активні заняття — кольорові, призупинені — сірі.
+        -->
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th>Курс</th>
+                    <th>Дні</th>
+                    <th>Час</th>
+                    <th>Статус</th>
+                </tr>
+            </thead>
+            <tbody id="schedule-body">
+                <!-- Рядки генеруються через do...while у initSchedulePage() -->
+            </tbody>
+        </table>
+
+        <!--
+            ЗАВДАННЯ 2: Кнопка для симуляції автоматичного оновлення розкладу.
+            При натисканні один випадковий курс змінює статус,
+            таблиця перерендерується (do...while повторюється).
+        -->
+        <div style="margin-top: 20px;">
+            <button id="refresh-schedule" class="btn">🔄 Оновити розклад</button>
+            <p id="schedule-msg" style="margin-top: 10px; min-height: 24px;"></p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>📍 Львів, Україна</p>
+    <p>📞 +380 99 123 45 67</p>
+    <p>✉️ info@courses.ua</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

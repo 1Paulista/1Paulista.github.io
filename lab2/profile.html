@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мій кабінет</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="profile">
+
+<header class="header">
+    <h1>Навчальна платформа</h1>
+    <nav>
+        <ul class="nav-list">
+            <li><a href="index.html">Головна</a></li>
+            <li><a href="courses.html">Курси</a></li>
+            <li><a href="schedule.html">Розклад занять</a></li>
+            <li><a href="profile.html">Мій кабінет</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h2>Мій кабінет</h2>
+
+        <div class="profile-card">
+            <h3>Студент: Павло Бритвак</h3>
+            <p>Email: info@courses.ua</p>
+        </div>
+
+        <!--
+            ЗАВДАННЯ 2: Блок поточного курсу з двома кнопками.
+            "Розпочати курс" — переміщує блок вище (translateY) + запускає таймер.
+            "Курс пройдено" — змінює колір фону блоку + відображає текст "Пройдено".
+        -->
+        <div id="current-course-block" class="progress" style="padding: 15px; border: 1px solid #ccc; border-radius: 4px;">
+            <h3>Поточний курс: JavaScript</h3>
+            <p id="progress-text">JavaScript — 70%</p>
+            <div class="progress-bar">
+                <div
+                    class="progress-fill"
+                    id="progress-fill-dynamic"
+                    style="width: 0%; transition: width 0.8s ease;"
+                ></div>
+            </div>
+
+            <p id="course-done-text" style="display:none; margin-top:10px;"></p>
+
+            <!-- Таймер навчання (прихований до натискання "Розпочати курс") -->
+            <p id="course-timer" style="display:none; margin-top:10px; font-weight:bold; color:#2c3e50;"></p>
+
+            <div style="margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
+                <button id="start-course-btn" class="btn">▶ Розпочати курс</button>
+                <button id="done-course-btn" class="btn" style="background:#27ae60;">✔ Курс пройдено</button>
+            </div>
+        </div>
+
+        <div class="completed" style="margin-top: 25px;">
+            <h3>Пройдені курси</h3>
+            <ul>
+                <li>✔ HTML & CSS</li>
+            </ul>
+        </div>
+
+        <!--
+            ЗАВДАННЯ 3: Журнал тренувань (пройдених курсів).
+            Генерується через цикл for у renderTrainingLog().
+            Показує: назву, тип, дату, тривалість.
+        -->
+        <div style="margin-top: 25px;">
+            <h3>📋 Журнал навчання</h3>
+            <ul id="training-log-list" style="list-style:none; padding:0;">
+                <!-- Генерується через цикл for у renderTrainingLog() -->
+            </ul>
+        </div>
+
+        <div class="certificates" style="margin-top: 25px;">
+            <h3>Сертифікати</h3>
+            <p>Сертифікат HTML & CSS отримано 2026 року.</p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>📍 Львів, Україна</p>
+    <p>📞 +380 99 123 45 67</p>
+    <p>✉️ info@courses.ua</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

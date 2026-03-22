@@ -1,0 +1,18 @@
+{
+  "courses": [
+    { "id": 1, "title": "HTML & CSS", "level": "Початковий", "duration": "6 тижнів", "teacher": "Максим Арзубов", "img": "img/html.png", "alt": "HTML курс", "completed": true },
+    { "id": 2, "title": "JavaScript", "level": "Середній", "duration": "8 тижнів", "teacher": "Ірина Піх", "img": "img/js.png", "alt": "JS курс", "completed": false },
+    { "id": 3, "title": "Python", "level": "Початковий", "duration": "10 тижнів", "teacher": "Роман Мельник", "img": "img/python.png", "alt": "Python курс", "completed": false },
+    { "id": 4, "title": "React", "level": "Просунутий", "duration": "12 тижнів", "teacher": "Юрій Пелех", "img": "img/react.png", "alt": "React курс", "completed": false },
+    { "id": 5, "title": "Node.js", "level": "Просунутий", "duration": "10 тижнів", "teacher": "Назарій Ріпак", "img": "img/node.png", "alt": "Node.js курс", "completed": false },
+    { "id": 6, "title": "SQL & Бази даних", "level": "Середній", "duration": "7 тижнів", "teacher": "Володимир Антонів", "img": "img/sql.png", "alt": "SQL курс", "completed": false }
+  ],
+  "schedule": [
+    { "course": "HTML & CSS", "days": "Пн, Ср", "time": "18:00", "active": true },
+    { "course": "JavaScript", "days": "Вт, Чт", "time": "17:00", "active": true },
+    { "course": "Python", "days": "Пт, Сб", "time": "16:00", "active": true },
+    { "course": "React", "days": "Пн, Пт", "time": "19:00", "active": true },
+    { "course": "Node.js", "days": "Ср, Сб", "time": "10:00", "active": false },
+    { "course": "SQL & Бази даних", "days": "Вт, Чт", "time": "20:00", "active": true }
+  ]
+}

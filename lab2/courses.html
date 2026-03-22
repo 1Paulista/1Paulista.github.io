@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курси</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="courses">
+
+<header class="header">
+    <h1>Навчальна платформа</h1>
+    <nav>
+        <ul class="nav-list">
+            <li><a href="index.html">Головна</a></li>
+            <li><a href="courses.html">Курси</a></li>
+            <li><a href="schedule.html">Розклад занять</a></li>
+            <li><a href="profile.html">Мій кабінет</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h2>Доступні курси</h2>
+
+        <!--
+            ЗАВДАННЯ 1: Блок з курсами генерується через цикл for у script.js.
+            coursesData масив → цикл for → createElement → appendChild.
+            if-else: пройдені курси мають інший стиль фону та кольору рамки.
+        -->
+        <div class="courses-grid" id="courses-grid">
+            <!-- Карточки генеруються JavaScript (цикл for у initCoursesPage()) -->
+        </div>
+
+        <!--
+            ЗАВДАННЯ 3: Шкала прогресу навчання.
+            Заповнюється залежно від кількості пройдених курсів.
+            Оновлюється при кожному натисканні кнопки "Курс пройдено".
+        -->
+        <div id="progress-section" style="margin-top: 30px; padding: 20px; border: 1px solid #ccc;">
+            <!-- Генерується динамічно через updateProgressBar() -->
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>📍 Львів, Україна</p>
+    <p>📞 +380 99 123 45 67</p>
+    <p>✉️ info@courses.ua</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
