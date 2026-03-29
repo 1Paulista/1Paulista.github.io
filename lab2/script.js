@@ -389,7 +389,7 @@ function renderTrainingLog() {
 }
 
 
-// СТОРІНКА: index.html (Головна)
+// index.html (Головна)
 function initIndexPage() {
     // наведення на переваги — показуємо опис при hover
     const advantageItems = document.querySelectorAll('.advantages li');
