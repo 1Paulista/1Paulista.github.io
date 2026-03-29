@@ -1,0 +1,65 @@
+.profile-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.profile-avatar {
+  width: 64px;
+  height: 64px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.profile-name {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.profile-email {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+.cert-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cert-icon {
+  font-size: 32px;
+}
+
+.cert-name {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.cert-date {
+  color: var(--text-muted);
+  font-size: 13px;
+}

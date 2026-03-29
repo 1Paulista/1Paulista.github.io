@@ -1,0 +1,17 @@
+.schedule-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.schedule-header .page-title {
+  margin-bottom: 0;
+}
+
+.schedule-btns {
+  display: flex;
+  gap: 10px;
+}
