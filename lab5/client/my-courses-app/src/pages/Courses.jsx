@@ -4,7 +4,7 @@ import { db } from '../firebase';
 import { useAuth } from '../context/AuthContext';
 import './Courses.css';
 
-const API_URL = 'http://localhost:5000';
+const API_URL = 'https://onepaulista-github-io.onrender.com';
 const categories = ['Всі', 'Фронтенд', 'Бекенд', 'Бази даних'];
 
 function StarRating({ value, onChange }) {
